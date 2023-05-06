@@ -1,5 +1,7 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
+import 'package:dev_app_1/features/authentication/widgets/form_button.dart';
+import 'package:dev_app_1/features/authentication/widgets/form_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,13 +21,32 @@ class _LoginScreenState extends State<LogInFormView> {
   /// Access state of Form
   /// Trigger some method of Form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  Map<String, String> formData = {'email': '', 'password': ''};
-  String? _email;
-  String? _password;
+  Map<String, String?> formData = {'email': '', 'password': ''};
+  bool _disabledButton = true;
 
   @override
   void initState() {
     super.initState();
+    _disabledButton =
+        formData['email']!.isEmpty || formData['password']!.isEmpty;
+  }
+
+  void _onChangedForm() {
+    _disabledButton =
+        formData['email']!.isEmpty || formData['password']!.isEmpty;
+    setState(() {});
+  }
+
+  void _onChangedField(String value, String field) {
+    formData[field] = value;
+  }
+
+  void _onSavedValue(String value, String field) {
+    if (value.isNotEmpty) {
+      formData[field] = value;
+      print(field);
+      print(formData);
+    }
   }
 
   void _onSubmitTab() {
@@ -86,6 +107,7 @@ class _LoginScreenState extends State<LogInFormView> {
 
               Form(
                 key: _formKey,
+                onChanged: _onChangedForm,
                 child: Column(
                   children: [
                     /// TextFormField : email
@@ -114,19 +136,25 @@ class _LoginScreenState extends State<LogInFormView> {
                         hintText: 'hintText',
                         labelText: 'labelText',
                       ),
-                      onSaved: (value) {
-                        print(value);
-                      },
                       onChanged: (value) {
-                        _email = value;
-                        print(_email);
-                        setState(() {});
+                        formData["email"] = value;
+                      },
+                      onSaved: (newValue) {
+                        if (newValue != null) {
+                          formData["email"] = newValue;
+                        }
                       },
                     ),
                     Gaps.v20,
 
                     /// TextFormField : password
                     TextFormField(
+                      validator: (value) {
+                        if (value != null && value.isEmpty) {
+                          return "Please write your password";
+                        }
+                        return null;
+                      },
                       obscureText: true,
                       decoration: InputDecoration(
                         fillColor: Theme.of(context).colorScheme.surfaceVariant,
@@ -145,42 +173,35 @@ class _LoginScreenState extends State<LogInFormView> {
                         hintText: 'hintText',
                         labelText: 'labelText',
                       ),
-                      onSaved: (value) {
-                        print(value);
-                      },
                       onChanged: (value) {
-                        _password = value;
-                        print(value);
-                        setState(() {});
+                        formData["password"] = value;
                       },
+                      onSaved: (newValue) {
+                        if (newValue != null) {
+                          formData["password"] = newValue;
+                        }
+                      },
+                    ),
+                    Gaps.v20,
+                    FormTextField(
+                      onChangedValue: (value) =>
+                          _onChangedField(value, 'password'),
+                      onSavedValue: (value) => _onSavedValue(value, 'password'),
+                    ),
+                    Gaps.v20,
+                    FormTextField(
+                      onChangedValue: (value) =>
+                          _onChangedField(value, 'email'),
+                      onSavedValue: (value) => _onSavedValue(value, 'email'),
                     ),
                     Gaps.v20,
 
                     /// form button
-                    FractionallySizedBox(
-                      widthFactor: 1,
-                      child: CupertinoButton.filled(
-                        onPressed: _email?.isEmpty == true ||
-                                _password?.isEmpty == true
-                            ? null
-                            : _onSubmitTab,
-                        disabledColor: Theme.of(context).colorScheme.outline,
-                        child: Padding(
-                          padding: EdgeInsets.zero,
-                          child: AnimatedDefaultTextStyle(
-                            style: TextStyle(
-                              color: _email?.isEmpty == true ||
-                                      _password?.isEmpty == true
-                                  ? Theme.of(context).colorScheme.outlineVariant
-                                  : Theme.of(context).colorScheme.onPrimary,
-                            ),
-                            duration: const Duration(milliseconds: 500),
-                            child: Text(
-                                '${_email?.isEmpty} ${_password?.isEmpty}'),
-                          ),
-                        ),
-                      ),
-                    ),
+                    FormButton(
+                      text: 'Sign in',
+                      disabledButton: _disabledButton,
+                      onSubmit: _onSubmitTab,
+                    )
                   ],
                 ),
               ),
