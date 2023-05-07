@@ -1,8 +1,10 @@
 import 'package:dev_app_1/constants/custom_color_schemes.g.dart';
 import 'package:dev_app_1/constants/text_theme.dart';
-import 'package:dev_app_1/features/authentication/views/login_form_view.dart';
+import 'package:dev_app_1/features/authentication/views/sign_in_form_view.dart';
+import 'package:dev_app_1/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
   /// glue that binds the framework to the Flutter engine.
@@ -30,21 +32,26 @@ void main() async {
     SystemUiOverlayStyle.dark,
   );
 
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     /// print(Orientation.portrait);
     /// print(Orientation.landscape);
     /// print(Orientation.values);
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'First Dev App',
       debugShowCheckedModeBanner: false,
+      routerConfig: ref.read(routerProvider),
 
       /// [themeMode]에서 설정된 mode에 따라 앱 실행됨
       /// [ThemeMode.light] -> ligth만 실행됨
@@ -54,13 +61,22 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: techLightColorScheme,
         textTheme: CustomTextTheme.textTheme,
+        appBarTheme: AppBarTheme(
+          titleTextStyle: CustomTextTheme.textTheme.headlineSmall!.copyWith(
+            color: techDarkColorScheme.onPrimary,
+          ),
+        ),
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
         colorScheme: techDarkColorScheme,
         textTheme: CustomTextTheme.textTheme,
+        appBarTheme: AppBarTheme(
+          titleTextStyle: CustomTextTheme.textTheme.headlineSmall!.copyWith(
+            color: techLightColorScheme.onPrimary,
+          ),
+        ),
       ),
-      home: const LogInFormView(),
     );
   }
 }

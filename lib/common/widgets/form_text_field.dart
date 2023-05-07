@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class FormTextField extends StatelessWidget {
   final Function onChangedValue;
   final Function onSavedValue;
+  final bool isObscure;
 
   const FormTextField({
     Key? key,
     required this.onChangedValue,
     required this.onSavedValue,
+    required this.isObscure,
   }) : super(key: key);
 
   @override
@@ -20,9 +22,9 @@ class FormTextField extends StatelessWidget {
         }
         return null;
       },
-      obscureText: true,
+      obscureText: isObscure,
       decoration: InputDecoration(
-        fillColor: Theme.of(context).colorScheme.surfaceVariant,
+        fillColor: Theme.of(context).colorScheme.secondaryContainer,
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),

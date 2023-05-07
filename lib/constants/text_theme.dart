@@ -17,6 +17,11 @@ class CustomTextTheme {
       fontSize: 47,
       fontWeight: FontWeight.w400,
     ),
+    headlineLarge: GoogleFonts.aBeeZee(
+      fontSize: 42,
+      fontWeight: FontWeight.w400,
+      letterSpacing: 0.5,
+    ),
     headlineMedium: GoogleFonts.aBeeZee(
       fontSize: 33,
       fontWeight: FontWeight.w400,
@@ -51,15 +56,20 @@ class CustomTextTheme {
       fontWeight: FontWeight.w400,
       letterSpacing: 0.25,
     ),
+    bodySmall: GoogleFonts.aBeeZee(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      letterSpacing: 0.4,
+    ),
     labelLarge: GoogleFonts.aBeeZee(
       fontSize: 14,
       fontWeight: FontWeight.w500,
       letterSpacing: 1.25,
     ),
-    bodySmall: GoogleFonts.aBeeZee(
+    labelMedium: GoogleFonts.aBeeZee(
       fontSize: 12,
       fontWeight: FontWeight.w400,
-      letterSpacing: 0.4,
+      letterSpacing: 1.4,
     ),
     labelSmall: GoogleFonts.aBeeZee(
       fontSize: 10,
