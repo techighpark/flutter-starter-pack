@@ -2,6 +2,9 @@ import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+/// [DefaultTabController]
+/// [TabBarView]
+/// [TabPageSelector]
 class MyTabBarView extends StatefulWidget {
   static String routeUrl = '/onboard';
   static String routeName = 'onboard';
@@ -16,7 +19,6 @@ class MyTabBarView extends StatefulWidget {
 class _MyTabBarViewState extends State<MyTabBarView> {
   @override
   Widget build(BuildContext context) {
-    /// [DefaultTabController] > [TabBarView] & [TabPageSelector]
     return DefaultTabController(
       length: 3,
       child: Scaffold(

@@ -1,6 +1,7 @@
 import 'package:dev_app_1/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+/// [AnimatedContainer]
 class SingleChildButton extends StatefulWidget {
   const SingleChildButton({
     super.key,

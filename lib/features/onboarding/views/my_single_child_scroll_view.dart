@@ -47,6 +47,11 @@ const interests = [
   "Home & Garden",
 ];
 
+/// [Scrollbar]
+/// [SingleChildScrollView]
+/// [AnimatedOpacity]
+/// [Wrap]
+/// [Material]
 class MySingleChildScrollView extends StatefulWidget {
   static String routeUrl = '/onboard';
   static String routeName = 'onboard';
@@ -92,7 +97,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
     setState(() {});
   }
 
-  void _onTabBarViewTab() {
+  void _onTabBarViewTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const MyTabBarView(),
@@ -100,7 +105,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
     );
   }
 
-  void _onAnimatedCrossFadeViewTab() {
+  void _onAnimatedCrossFadeViewTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const MyAnimatedCrossFadeView(),
@@ -159,8 +164,6 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Gaps.v64,
-
-                /// TODO [Wrap]
                 Wrap(
                   runSpacing: Sizes.size20,
                   spacing: Sizes.size20,
@@ -197,7 +200,20 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
               CupertinoButton(
                 color: Theme.of(context).colorScheme.onPrimaryContainer,
                 disabledColor: Theme.of(context).colorScheme.onPrimary,
-                onPressed: _disabledButton ? null : _onAnimatedCrossFadeViewTab,
+                onPressed: _disabledButton ? null : _onTabBarViewTap,
+                child: Text(
+                  'Tab Bar View',
+                  style: TextStyle(
+                    color: _disabledButton
+                        ? Theme.of(context).colorScheme.onPrimaryContainer
+                        : Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+              CupertinoButton(
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
+                disabledColor: Theme.of(context).colorScheme.onPrimary,
+                onPressed: _disabledButton ? null : _onAnimatedCrossFadeViewTap,
                 child: Text(
                   'Animated Cross Fade View',
                   style: TextStyle(
@@ -217,7 +233,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
                   CupertinoButton(
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                     disabledColor: Theme.of(context).colorScheme.onPrimary,
-                    onPressed: _disabledButton ? null : _onTabBarViewTab,
+                    onPressed: _disabledButton ? null : _onTabBarViewTap,
                     child: Text(
                       'Tab Bar View',
                       style: TextStyle(
@@ -232,7 +248,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                     disabledColor: Theme.of(context).colorScheme.onPrimary,
                     onPressed:
-                        _disabledButton ? null : _onAnimatedCrossFadeViewTab,
+                        _disabledButton ? null : _onAnimatedCrossFadeViewTap,
                     child: Text(
                       'Animated Cross Fade View',
                       style: TextStyle(
