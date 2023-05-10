@@ -1,10 +1,14 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
+import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
+import 'package:dev_app_1/features/main_navigation/views/my_cupertino_tab_bar_view.dart';
 import 'package:dev_app_1/features/onboarding/views/my_animated_cross_fade_view.dart';
+import 'package:dev_app_1/features/onboarding/views/my_animated_switcher_view.dart';
 import 'package:dev_app_1/features/onboarding/views/my_tab_bar_view.dart';
 import 'package:dev_app_1/features/onboarding/widgets/single_child_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 const interests = [
   "Daily Life",
@@ -78,7 +82,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
     } else {
       _interestList.remove(interest);
     }
-    if (_interestList.length > 3) {
+    if (_interestList.isNotEmpty) {
       _disabledButton = false;
     } else {
       _disabledButton = true;
@@ -111,6 +115,42 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
         builder: (context) => const MyAnimatedCrossFadeView(),
       ),
     );
+  }
+
+  void _onAnimatedSwitcherTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const MyAnimatedSwitcherView(),
+      ),
+    );
+  }
+
+  void _onMainNavigationTap() {
+    // Navigator.of(context).pushAndRemoveUntil(
+    //   MaterialPageRoute(
+    //     builder: (context) => const MainNavigationView(),
+    //   ),
+    //   (route) {
+    //     /// true -> 이전 routes 제거되지 않음
+    //     /// false -> 이전 routes 제거됨
+    //     return false;
+    //   },
+    // );
+    context.pushNamed(MainNavigationView.routeName);
+  }
+
+  void _onCupertinoTap() {
+    // Navigator.of(context).pushAndRemoveUntil(
+    //   MaterialPageRoute(
+    //     builder: (context) => const MainNavigationView(),
+    //   ),
+    //   (route) {
+    //     /// true -> 이전 routes 제거되지 않음
+    //     /// false -> 이전 routes 제거됨
+    //     return false;
+    //   },
+    // );
+    context.pushNamed(MyCupertinoTabBarView.routeName);
   }
 
   @override
@@ -233,9 +273,9 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
                   CupertinoButton(
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                     disabledColor: Theme.of(context).colorScheme.onPrimary,
-                    onPressed: _disabledButton ? null : _onTabBarViewTap,
+                    onPressed: _disabledButton ? null : _onMainNavigationTap,
                     child: Text(
-                      'Tab Bar View',
+                      'Main Navigation View',
                       style: TextStyle(
                         color: _disabledButton
                             ? Theme.of(context).colorScheme.onPrimaryContainer
@@ -247,10 +287,9 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
                   CupertinoButton(
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                     disabledColor: Theme.of(context).colorScheme.onPrimary,
-                    onPressed:
-                        _disabledButton ? null : _onAnimatedCrossFadeViewTap,
+                    onPressed: _disabledButton ? null : _onCupertinoTap,
                     child: Text(
-                      'Animated Cross Fade View',
+                      'Cupertino Tab Bar View',
                       style: TextStyle(
                         color: _disabledButton
                             ? Theme.of(context).colorScheme.onPrimaryContainer

@@ -34,8 +34,6 @@ class _MyAnimatedSwitcherViewState extends State<MyAnimatedSwitcherView> {
   }
 
   void _onPanEnd(DragEndDetails details) {
-    print(_index);
-    print(_direction);
     if (_direction == Direction.left) {
       if (_index == switcherText.length - 1) {
         _index = 0;

@@ -3,7 +3,10 @@ import 'package:dev_app_1/constants/sizes.dart';
 import 'package:dev_app_1/features/authentication/views/sign_up_form_view.dart';
 import 'package:dev_app_1/common/widgets/form_button.dart';
 import 'package:dev_app_1/common/widgets/form_text_field.dart';
+import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
 import 'package:dev_app_1/features/onboarding/views/my_single_child_scroll_view.dart';
+import 'package:dev_app_1/features/widget_navigation/widget_navigation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -80,8 +83,16 @@ class _SignInFormViewState extends State<SignInFormView> {
     }
   }
 
-  void _onSignUpTab() {
+  void _onSignUpTap() {
     context.go(SignUpFormView.routeUrl);
+  }
+
+  void _onWidgetNavigationTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const WidgetNavigation(),
+      ),
+    );
   }
 
   @override
@@ -129,7 +140,20 @@ class _SignInFormViewState extends State<SignInFormView> {
                       text: 'Sign in',
                       disabledButton: _disabledButton,
                       onSubmit: _onSubmitTab,
-                    )
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 1,
+                      child: CupertinoButton(
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                        onPressed: _onWidgetNavigationTap,
+                        child: Text(
+                          'Widget Navigation',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -153,7 +177,7 @@ class _SignInFormViewState extends State<SignInFormView> {
             ),
             Gaps.h5,
             GestureDetector(
-              onTap: _onSignUpTab,
+              onTap: _onSignUpTap,
               child: Text(
                 'Sign up',
                 style: TextStyle(

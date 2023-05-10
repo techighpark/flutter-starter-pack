@@ -76,6 +76,11 @@ class MyApp extends ConsumerWidget {
             color: techLightColorScheme.onPrimary,
           ),
         ),
+        navigationBarTheme: NavigationBarThemeData(
+          backgroundColor: Colors.red.withOpacity(0.2),
+          // indicatorColor: Colors.orange.shade300,
+          // backgroundColor: Colors.deepOrange,
+        ),
       ),
     );
   }

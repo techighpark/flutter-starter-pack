@@ -1,10 +1,15 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
+import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 /// [DefaultTabController]
 /// [TabBarView]
 /// [TabPageSelector]
+/// TabBarView doesn't work at WEB
+/// [pushAndRemoveUntil]
 class MyTabBarView extends StatefulWidget {
   static String routeUrl = '/onboard';
   static String routeName = 'onboard';
@@ -41,14 +46,21 @@ class _MyTabBarViewState extends State<MyTabBarView> {
           child: TabBarView(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: Sizes.size24),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Sizes.size24,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Gaps.v52,
-                    Text(
-                      'First Tab',
-                      style: Theme.of(context).textTheme.headlineMedium,
+                    Container(
+                      padding: const EdgeInsets.only(
+                        top: Sizes.size52,
+                      ),
+                      child: Text(
+                        'First Tab with',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
                     ),
                   ],
                 ),
@@ -62,6 +74,20 @@ class _MyTabBarViewState extends State<MyTabBarView> {
                     Text(
                       'Second Tab',
                       style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 1,
+                      child: CupertinoButton(
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                        disabledColor: Theme.of(context).colorScheme.onPrimary,
+                        onPressed: null,
+                        child: Text(
+                          'Go to Navigation Tab(deprecated)',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
