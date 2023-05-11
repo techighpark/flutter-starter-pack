@@ -2,6 +2,7 @@ import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
 import 'package:dev_app_1/features/main_navigation/views/stfScreen.dart';
 import 'package:dev_app_1/features/main_navigation/widgets/nav_tab.dart';
+import 'package:dev_app_1/features/widget_navigation/widgets/buttons/stack_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -53,12 +54,21 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
     setState(() {});
   }
 
+  void _onStackButtonTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => Container(),
+        fullscreenDialog: true,
+      ),
+    );
+  }
+
   /// [Scaffold] 한번에 한 화면만 그림
   /// 우리가 원하는 건 화면을 그리지만 사용자에게 시각적으로 보이지 않게 하는 것(화면은 alive~) -> [Stack] + [Offstage]
   /// [Offstage] = Creates a widget that visually hides its child.
   /// [Offstage]->[offstage] = false => visible
   /// [Offstage]->[offstage] = true => invisible
-  /// [Offstage] -> [children] 너무 많이 사용하면 안된다!!
+  /// [Offstage]->[children] 너무 많이 사용하면 안된다!!
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +103,7 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
         height: 110,
         padding: const EdgeInsets.all(Sizes.size12),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             NavTab(
               text: 'Home',
@@ -102,11 +112,17 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
               onTap: () => _onTap(0),
             ),
             NavTab(
-              text: 'device_phone',
+              text: 'phone',
               isSelected: _selectedIndex == 1,
               onTap: () => _onTap(1),
               icon: CupertinoIcons.device_phone_portrait,
             ),
+            Gaps.h20,
+            GestureDetector(
+              onTap: _onStackButtonTap,
+              child: const StackButton(),
+            ),
+            Gaps.h20,
             NavTab(
               text: 'option',
               isSelected: _selectedIndex == 3,

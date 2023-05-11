@@ -2,7 +2,7 @@ import 'package:dev_app_1/constants/sizes.dart';
 import 'package:dev_app_1/features/main_navigation/views/custom_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/my_cupertino_tab_bar_view.dart';
-import 'package:dev_app_1/features/widget_navigation/button_type_view.dart';
+import 'package:dev_app_1/features/widget_navigation/views/button_type_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -46,6 +46,24 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
       MaterialPageRoute(
         builder: (context) => const ButtonTypeView(),
       ),
+    );
+  }
+
+  /// [BuildContext]를 안받아도 사용은 가능하지만 성능이 떨어진다
+  void _onShowModalBottomSheetTap(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => Container(),
+    );
+  }
+
+  final scaffoldState = GlobalKey<ScaffoldState>();
+
+  /// 별 짓거리를 해도 안됨
+  /// [BuildContext]를 안받아도 사용은 가능하지만 성능이 떨어진다..하지만 Scaffold 내에서 작성해야한다
+  void _onShowBottomSheetTap() {
+    Scaffold.of(context).showBottomSheet(
+      (context) => Container(),
     );
   }
 
@@ -126,6 +144,36 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
                   onPressed: _onButtonTypeTap,
                   child: Text(
                     'Button Type View',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                'Bottom Sheet Type',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: CupertinoButton(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  onPressed: () => _onShowModalBottomSheetTap(context),
+                  child: Text(
+                    'showModalBottomSheet',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: CupertinoButton(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  onPressed: null,
+                  child: Text(
+                    'showBottomSheet',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),

@@ -1,8 +1,11 @@
+import 'package:dev_app_1/constants/gaps.dart';
+import 'package:dev_app_1/features/widget_navigation/widgets/buttons/stack_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// [BottomNavigationBar] - Material Design 2
 /// [NavigationBar] - Material Design 3
+/// [NavigationDestination]
 class MainNavigationView extends StatefulWidget {
   static String routeName = 'mainNavigation';
   static String routeUrl = '/main';
@@ -54,6 +57,7 @@ class _MainNavigationViewState extends State<MainNavigationView> {
             ),
             label: 'Search',
           ),
+          StackButton(),
           NavigationDestination(
             icon: Icon(
               Icons.add_business_rounded,
