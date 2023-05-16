@@ -3,9 +3,13 @@ import 'package:dev_app_1/features/main_navigation/views/custom_navigation_view.
 import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/my_cupertino_tab_bar_view.dart';
 import 'package:dev_app_1/features/widget_navigation/views/button_type_view.dart';
+import 'package:dev_app_1/features/widget_navigation/widgets/bottom_sheets/modal_bottom_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// [Scaffold]
+/// [resizeToAvoidBottomInset]
+/// [showModalBottomSheet]
 class WidgetNavigation extends StatefulWidget {
   static String routeUrl = '/widgetnav';
   static String routeName = 'widgetnav';
@@ -53,7 +57,19 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
   void _onShowModalBottomSheetTap(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) => Container(),
+
+      /// [ListView]를 사용하려면
+      /// [isScrollControlled] true로 설정해줘라!
+      /// [bottomSheet] size 조절 가능
+      isScrollControlled: true,
+
+      /// [barrierColor]
+      // barrierColor: Colors.red,
+      /// bottom sheet radius
+      /// with [ModalBottomSheet]>[Container]>[borderRadius]
+      backgroundColor: Colors.transparent,
+      clipBehavior: Clip.hardEdge,
+      builder: (context) => const ModalBottomSheet(),
     );
   }
 
@@ -76,6 +92,11 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /// modal_bottom_sheet.dart > [Stack] + [Positioned] + [Scaffold] > [resizeToAvoidBottomInset]
+      /// keyboard같은게 올라오면 scaffold 화면을 가리지 않도록 사이즈를 재조정한다
+      /// true = 재조정 (default)
+      /// false = 재조정 안함
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Widget Navigation'),
       ),

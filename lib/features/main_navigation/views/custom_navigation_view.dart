@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// [Offstage]
+/// [fullscreenDialog]
 class CustomNavigationView extends StatefulWidget {
   static String routeUrl = '/customNav';
   static String routeName = 'customNav';
