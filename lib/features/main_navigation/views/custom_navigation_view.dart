@@ -1,5 +1,6 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
+import 'package:dev_app_1/features/grid_view/views/custom_grid_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/stfScreen.dart';
 import 'package:dev_app_1/features/main_navigation/widgets/nav_tab.dart';
 import 'package:dev_app_1/features/widget_navigation/widgets/buttons/stack_button.dart';
@@ -73,9 +74,6 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Custom Navigation'),
-      ),
       body: Stack(
         children: [
           Offstage(
@@ -84,7 +82,7 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
           ),
           Offstage(
             offstage: _selectedIndex != 1,
-            child: StfScreen(),
+            child: const CustomGridView(),
           ),
           Offstage(
             offstage: _selectedIndex != 2,
@@ -113,10 +111,10 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
               onTap: () => _onTap(0),
             ),
             NavTab(
-              text: 'phone',
+              text: 'Grid',
               isSelected: _selectedIndex == 1,
               onTap: () => _onTap(1),
-              icon: CupertinoIcons.device_phone_portrait,
+              icon: CupertinoIcons.square_grid_3x2,
             ),
             Gaps.h20,
             GestureDetector(

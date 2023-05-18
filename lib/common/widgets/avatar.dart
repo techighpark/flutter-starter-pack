@@ -2,13 +2,14 @@ import 'package:dev_app_1/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class Avatar extends StatelessWidget {
-  const Avatar({Key? key}) : super(key: key);
+  final double radius;
+  const Avatar({Key? key, this.radius = Sizes.size20}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const CircleAvatar(
-      radius: Sizes.size20,
-      child: Text('Avat'),
+    return CircleAvatar(
+      radius: radius,
+      child: const Text('Avat'),
     );
   }
 }

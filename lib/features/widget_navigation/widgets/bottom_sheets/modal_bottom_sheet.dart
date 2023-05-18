@@ -18,11 +18,11 @@ class ModalBottomSheet extends StatefulWidget {
 
 class _ModalBottomSheetState extends State<ModalBottomSheet> {
   bool _isWriting = false;
-
   int textLines = 1;
   final double _initialHeight = 40;
   final double _increaseHeight = 25;
   double _textFieldHeight = 40;
+  final ScrollController _scrollController = ScrollController();
 
   void _onClosePressed() {
     Navigator.of(context).pop();
@@ -115,63 +115,68 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
               //     ),
               //   ),
               // ),
-              ListView.separated(
-                padding: const EdgeInsets.only(
-                  top: Sizes.size12,
-                  bottom: Sizes.size96,
-                  left: Sizes.size20,
-                  right: Sizes.size20,
-                ),
-                itemCount: 10,
-                separatorBuilder: (context, index) => Gaps.v20,
-                itemBuilder: (context, index) => Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Avatar(),
-                    Gaps.h20,
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+              Scrollbar(
+                controller: _scrollController,
+                child: ListView.separated(
+                  padding: const EdgeInsets.only(
+                    top: Sizes.size12,
+                    bottom: Sizes.size96 + Sizes.size12,
+                    left: Sizes.size20,
+                    right: Sizes.size20,
+                  ),
+                  itemCount: 10,
+                  separatorBuilder: (context, index) => Gaps.v20,
+                  itemBuilder: (context, index) => Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Avatar(),
+                      Gaps.h20,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'user id',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Colors.grey.shade500,
+                                  ),
+                            ),
+                            Gaps.v3,
+                            // Text(
+                            //     'MediaQuery - padding : ${MediaQuery.of(context).padding}'),
+                            // Text(
+                            //     'MediaQuery - viewPadding : ${MediaQuery.of(context).viewPadding}'),
+                            // Text(
+                            //     'MediaQuery - viewInsets : ${MediaQuery.of(context).viewInsets}'),
+                            const Text(
+                              "That's not it i've seen the same thing but also in a cave and so on. That's not it i've seen the same thing but also in a cave and so on. That's not it i've seen the same thing but also in a cave and so on.",
+                            ),
+                          ],
+                        ),
+                      ),
+                      Gaps.h20,
+                      Column(
                         children: [
+                          Icon(
+                            CupertinoIcons.heart,
+                            color: Colors.grey.shade500,
+                          ),
                           Text(
-                            'user id',
+                            '23.4M',
                             style: Theme.of(context)
                                 .textTheme
-                                .labelLarge!
+                                .labelMedium!
                                 .copyWith(
                                   color: Colors.grey.shade500,
                                 ),
                           ),
-                          Gaps.v3,
-                          // Text(
-                          //     'MediaQuery - padding : ${MediaQuery.of(context).padding}'),
-                          // Text(
-                          //     'MediaQuery - viewPadding : ${MediaQuery.of(context).viewPadding}'),
-                          // Text(
-                          //     'MediaQuery - viewInsets : ${MediaQuery.of(context).viewInsets}'),
-                          const Text(
-                            "That's not it i've seen the same thing but also in a cave and so on. That's not it i've seen the same thing but also in a cave and so on. That's not it i've seen the same thing but also in a cave and so on.",
-                          ),
                         ],
                       ),
-                    ),
-                    Gaps.h20,
-                    Column(
-                      children: [
-                        Icon(
-                          CupertinoIcons.heart,
-                          color: Colors.grey.shade500,
-                        ),
-                        Text(
-                          '23.4M',
-                          style:
-                              Theme.of(context).textTheme.labelMedium!.copyWith(
-                                    color: Colors.grey.shade500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
 

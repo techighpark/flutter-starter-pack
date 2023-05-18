@@ -2,6 +2,8 @@ import 'package:dev_app_1/constants/sizes.dart';
 import 'package:dev_app_1/features/main_navigation/views/custom_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/my_cupertino_tab_bar_view.dart';
+import 'package:dev_app_1/features/text_field/text_field_view.dart';
+import 'package:dev_app_1/features/widget_navigation/views/Swipe_type_view.dart';
 import 'package:dev_app_1/features/widget_navigation/views/button_type_view.dart';
 import 'package:dev_app_1/features/widget_navigation/widgets/bottom_sheets/modal_bottom_sheet.dart';
 import 'package:flutter/cupertino.dart';
@@ -49,6 +51,22 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const ButtonTypeView(),
+      ),
+    );
+  }
+
+  void _onSwipeTypeTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const SwipeTypeView(),
+      ),
+    );
+  }
+
+  void _onTextFieldTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TextFieldView(),
       ),
     );
   }
@@ -195,6 +213,40 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
                   onPressed: null,
                   child: Text(
                     'showBottomSheet',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                'Swipe View Type',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: CupertinoButton(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  onPressed: _onSwipeTypeTap,
+                  child: Text(
+                    'Swipe View',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                'TextField Type',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: CupertinoButton(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  onPressed: _onTextFieldTap,
+                  child: Text(
+                    'TextField',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),
