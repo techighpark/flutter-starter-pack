@@ -1,21 +1,21 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
-import 'package:dev_app_1/features/onboarding/views/my_animated_cross_fade_view.dart';
-import 'package:dev_app_1/features/onboarding/views/my_animated_switcher_view.dart';
-import 'package:dev_app_1/features/onboarding/views/my_single_child_scroll_view.dart';
-import 'package:dev_app_1/features/onboarding/views/my_tab_bar_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_animated_cross_fade_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_animated_switcher_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_single_child_scroll_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_tab_bar_view.dart';
 import 'package:dev_app_1/features/widget_navigation/widgets/buttons/stack_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SwipeTypeView extends StatefulWidget {
-  const SwipeTypeView({Key? key}) : super(key: key);
+class TechSwipeTypeListView extends StatefulWidget {
+  const TechSwipeTypeListView({Key? key}) : super(key: key);
 
   @override
-  State<SwipeTypeView> createState() => _ButtonTypeViewState();
+  State<TechSwipeTypeListView> createState() => _ButtonTypeViewState();
 }
 
-class _ButtonTypeViewState extends State<SwipeTypeView> {
+class _ButtonTypeViewState extends State<TechSwipeTypeListView> {
   final ScrollController _scrollController = ScrollController();
 
   void _onSwipeTap(String type) {
@@ -23,13 +23,13 @@ class _ButtonTypeViewState extends State<SwipeTypeView> {
       MaterialPageRoute(
         builder: (context) {
           if (type == 'tabbar') {
-            return const MyTabBarView();
+            return const TechTabBarView();
           } else if (type == 'singlechild') {
-            return const MySingleChildScrollView(email: '123');
+            return const TechSingleChildScrollView(email: '123');
           } else if (type == 'cross') {
-            return const MyAnimatedCrossFadeView();
+            return const TechAnimatedCrossFadeView();
           } else {
-            return const MyAnimatedSwitcherView();
+            return const TechAnimatedSwitcherView();
           }
         },
       ),

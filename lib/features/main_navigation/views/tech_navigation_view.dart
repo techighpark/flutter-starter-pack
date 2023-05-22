@@ -1,23 +1,24 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
-import 'package:dev_app_1/features/grid_view/views/custom_grid_view.dart';
+import 'package:dev_app_1/features/grid_view/views/tech_custom_grid_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/stfScreen.dart';
 import 'package:dev_app_1/features/main_navigation/widgets/nav_tab.dart';
+import 'package:dev_app_1/features/scroll_view/views/tech_custom_scroll_view.dart';
 import 'package:dev_app_1/features/widget_navigation/widgets/buttons/stack_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// [Offstage]
 /// [fullscreenDialog]
-class CustomNavigationView extends StatefulWidget {
+class TechNavigationView extends StatefulWidget {
   static String routeUrl = '/customNav';
   static String routeName = 'customNav';
-  const CustomNavigationView({Key? key}) : super(key: key);
+  const TechNavigationView({Key? key}) : super(key: key);
   @override
-  State<CustomNavigationView> createState() => _CustomNavigationViewState();
+  State<TechNavigationView> createState() => _TechNavigationViewState();
 }
 
-class _CustomNavigationViewState extends State<CustomNavigationView> {
+class _TechNavigationViewState extends State<TechNavigationView> {
   int _selectedIndex = 0;
 
   /// 화면 이동시 dispose 된다
@@ -82,7 +83,7 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
           ),
           Offstage(
             offstage: _selectedIndex != 1,
-            child: const CustomGridView(),
+            child: const TechCustomGridView(),
           ),
           Offstage(
             offstage: _selectedIndex != 2,
@@ -94,7 +95,7 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
           ),
           Offstage(
             offstage: _selectedIndex != 4,
-            child: StfScreen(),
+            child: const TechCustomScrollView(),
           ),
         ],
       ),
@@ -123,16 +124,16 @@ class _CustomNavigationViewState extends State<CustomNavigationView> {
             ),
             Gaps.h20,
             NavTab(
-              text: 'option',
+              text: 'Nested',
               isSelected: _selectedIndex == 3,
               onTap: () => _onTap(3),
-              icon: CupertinoIcons.option,
+              icon: CupertinoIcons.arrow_up_arrow_down,
             ),
             NavTab(
-              text: 'keyboard',
+              text: 'Custom',
               isSelected: _selectedIndex == 4,
               onTap: () => _onTap(4),
-              icon: CupertinoIcons.keyboard,
+              icon: CupertinoIcons.arrow_up_arrow_down,
             )
           ],
         ),

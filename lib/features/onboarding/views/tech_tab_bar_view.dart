@@ -1,6 +1,6 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
-import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
+import 'package:dev_app_1/features/main_navigation/views/tech_material_navigation_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -10,18 +10,18 @@ import 'package:go_router/go_router.dart';
 /// [TabPageSelector]
 /// TabBarView doesn't work at WEB
 /// [pushAndRemoveUntil]
-class MyTabBarView extends StatefulWidget {
+class TechTabBarView extends StatefulWidget {
   static String routeUrl = '/onboard';
   static String routeName = 'onboard';
-  const MyTabBarView({
+  const TechTabBarView({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<MyTabBarView> createState() => _MyTabBarViewState();
+  State<TechTabBarView> createState() => _TechTabBarViewState();
 }
 
-class _MyTabBarViewState extends State<MyTabBarView> {
+class _TechTabBarViewState extends State<TechTabBarView> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

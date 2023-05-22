@@ -1,10 +1,10 @@
 import 'package:dev_app_1/constants/sizes.dart';
-import 'package:dev_app_1/features/main_navigation/views/custom_navigation_view.dart';
-import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
-import 'package:dev_app_1/features/main_navigation/views/my_cupertino_tab_bar_view.dart';
+import 'package:dev_app_1/features/main_navigation/views/tech_navigation_view.dart';
+import 'package:dev_app_1/features/main_navigation/views/tech_material_navigation_view.dart';
+import 'package:dev_app_1/features/main_navigation/views/tech_cupertino_tab_bar_view.dart';
 import 'package:dev_app_1/features/text_field/text_field_view.dart';
-import 'package:dev_app_1/features/widget_navigation/views/Swipe_type_view.dart';
-import 'package:dev_app_1/features/widget_navigation/views/button_type_view.dart';
+import 'package:dev_app_1/features/widget_navigation/views/tech_swipe_type_list_view.dart';
+import 'package:dev_app_1/features/widget_navigation/views/tech_button_type_list_view.dart';
 import 'package:dev_app_1/features/widget_navigation/widgets/bottom_sheets/modal_bottom_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,21 +12,22 @@ import 'package:flutter/material.dart';
 /// [Scaffold]
 /// [resizeToAvoidBottomInset]
 /// [showModalBottomSheet]
-class WidgetNavigation extends StatefulWidget {
+class TechWidgetListNavigation extends StatefulWidget {
   static String routeUrl = '/widgetnav';
   static String routeName = 'widgetnav';
-  const WidgetNavigation({Key? key}) : super(key: key);
+  const TechWidgetListNavigation({Key? key}) : super(key: key);
 
   @override
-  State<WidgetNavigation> createState() => _WidgetNavigationState();
+  State<TechWidgetListNavigation> createState() =>
+      _TechWidgetListNavigationState();
 }
 
-class _WidgetNavigationState extends State<WidgetNavigation> {
+class _TechWidgetListNavigationState extends State<TechWidgetListNavigation> {
   final ScrollController _scrollController = ScrollController();
   void _onNavigationTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const MainNavigationView(),
+        builder: (context) => const TechMaterialNavigationView(),
       ),
     );
   }
@@ -34,7 +35,7 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
   void _onCustomNavigationTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const CustomNavigationView(),
+        builder: (context) => const TechNavigationView(),
       ),
     );
   }
@@ -42,7 +43,7 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
   void _onCupertinoNavTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const MyCupertinoTabBarView(),
+        builder: (context) => const TechCupertinoTabBarView(),
       ),
     );
   }
@@ -50,7 +51,7 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
   void _onButtonTypeTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const ButtonTypeView(),
+        builder: (context) => const TechButtonTypeListView(),
       ),
     );
   }
@@ -58,7 +59,7 @@ class _WidgetNavigationState extends State<WidgetNavigation> {
   void _onSwipeTypeTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const SwipeTypeView(),
+        builder: (context) => const TechSwipeTypeListView(),
       ),
     );
   }

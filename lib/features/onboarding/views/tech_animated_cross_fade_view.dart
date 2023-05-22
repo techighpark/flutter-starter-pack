@@ -1,6 +1,6 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
-import 'package:dev_app_1/features/onboarding/views/my_animated_switcher_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_animated_switcher_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,19 +13,19 @@ enum Direction { right, left }
 
 enum Page { first, second }
 
-class MyAnimatedCrossFadeView extends StatefulWidget {
+class TechAnimatedCrossFadeView extends StatefulWidget {
   static String routeUrl = '/onboard';
   static String routeName = 'onboard';
-  const MyAnimatedCrossFadeView({
+  const TechAnimatedCrossFadeView({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<MyAnimatedCrossFadeView> createState() =>
-      _MyAnimatedCrossFadeViewState();
+  State<TechAnimatedCrossFadeView> createState() =>
+      _TechAnimatedCrossFadeViewState();
 }
 
-class _MyAnimatedCrossFadeViewState extends State<MyAnimatedCrossFadeView> {
+class _TechAnimatedCrossFadeViewState extends State<TechAnimatedCrossFadeView> {
   // bool _isFirst = true;
   Direction _direction = Direction.right;
   Page _showingPage = Page.first;
@@ -53,7 +53,7 @@ class _MyAnimatedCrossFadeViewState extends State<MyAnimatedCrossFadeView> {
   void _onAnimatedSwitcherTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const MyAnimatedSwitcherView(),
+        builder: (context) => const TechAnimatedSwitcherView(),
       ),
     );
   }

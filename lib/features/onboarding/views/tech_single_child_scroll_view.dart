@@ -1,10 +1,10 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
-import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
-import 'package:dev_app_1/features/main_navigation/views/my_cupertino_tab_bar_view.dart';
-import 'package:dev_app_1/features/onboarding/views/my_animated_cross_fade_view.dart';
-import 'package:dev_app_1/features/onboarding/views/my_animated_switcher_view.dart';
-import 'package:dev_app_1/features/onboarding/views/my_tab_bar_view.dart';
+import 'package:dev_app_1/features/main_navigation/views/tech_material_navigation_view.dart';
+import 'package:dev_app_1/features/main_navigation/views/tech_cupertino_tab_bar_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_animated_cross_fade_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_animated_switcher_view.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_tab_bar_view.dart';
 import 'package:dev_app_1/features/onboarding/widgets/single_child_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -56,21 +56,21 @@ const interests = [
 /// [AnimatedOpacity]
 /// [Wrap]
 /// [Material]
-class MySingleChildScrollView extends StatefulWidget {
+class TechSingleChildScrollView extends StatefulWidget {
   static String routeUrl = '/onboard';
   static String routeName = 'onboard';
   final String email;
-  const MySingleChildScrollView({
+  const TechSingleChildScrollView({
     Key? key,
     required this.email,
   }) : super(key: key);
 
   @override
-  State<MySingleChildScrollView> createState() =>
-      _MySingleChildScrollViewState();
+  State<TechSingleChildScrollView> createState() =>
+      _TechSingleChildScrollViewState();
 }
 
-class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
+class _TechSingleChildScrollViewState extends State<TechSingleChildScrollView> {
   final ScrollController _scrollController = ScrollController();
   bool _showTitle = false;
   final List<String> _interestList = [];
@@ -104,7 +104,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
   void _onTabBarViewTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const MyTabBarView(),
+        builder: (context) => const TechTabBarView(),
       ),
     );
   }
@@ -112,7 +112,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
   void _onAnimatedCrossFadeViewTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const MyAnimatedCrossFadeView(),
+        builder: (context) => const TechAnimatedCrossFadeView(),
       ),
     );
   }
@@ -120,7 +120,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
   void _onAnimatedSwitcherTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const MyAnimatedSwitcherView(),
+        builder: (context) => const TechAnimatedSwitcherView(),
       ),
     );
   }
@@ -136,7 +136,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
     //     return false;
     //   },
     // );
-    context.pushNamed(MainNavigationView.routeName);
+    context.pushNamed(TechMaterialNavigationView.routeName);
   }
 
   void _onCupertinoTap() {
@@ -150,7 +150,7 @@ class _MySingleChildScrollViewState extends State<MySingleChildScrollView> {
     //     return false;
     //   },
     // );
-    context.pushNamed(MyCupertinoTabBarView.routeName);
+    context.pushNamed(TechCupertinoTabBarView.routeName);
   }
 
   @override

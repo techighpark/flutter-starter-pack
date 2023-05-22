@@ -82,7 +82,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
           ],
         ),
 
-        /// [Stack] + [Positioned] + widget_navigation.dart > [Scaffold] > [resizeToAvoidBottomInset]
+        /// [Stack] + [Positioned] + tech_widget_list_navigation.dart > [Scaffold] > [resizeToAvoidBottomInset]
         /// keyboard 올라올 때 bottomNavigationBar 가려지는 것을 막기 위해서
         /// 1
         /// [Stack] > [children] z-index? 가장 먼저 작성된 위젯이 가장 아래에 존재

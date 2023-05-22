@@ -7,16 +7,17 @@ import 'package:flutter/material.dart';
 /// [CupertinoIcons]
 /// main.dart : MaterialApp -> CupertinoApp
 /// themeData 없어짐
-class MyCupertinoTabBarView extends StatefulWidget {
+class TechCupertinoTabBarView extends StatefulWidget {
   static String routeName = 'cupertinoScaffold';
   static String routeUrl = '/cupertinoScaffold';
-  const MyCupertinoTabBarView({Key? key}) : super(key: key);
+  const TechCupertinoTabBarView({Key? key}) : super(key: key);
 
   @override
-  State<MyCupertinoTabBarView> createState() => _MyCupertinoTabBarViewState();
+  State<TechCupertinoTabBarView> createState() =>
+      _TechCupertinoTabBarViewState();
 }
 
-class _MyCupertinoTabBarViewState extends State<MyCupertinoTabBarView> {
+class _TechCupertinoTabBarViewState extends State<TechCupertinoTabBarView> {
   int _selectedIndex = 0;
 
   final screens = [

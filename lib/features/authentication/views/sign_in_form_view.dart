@@ -3,9 +3,8 @@ import 'package:dev_app_1/constants/sizes.dart';
 import 'package:dev_app_1/features/authentication/views/sign_up_form_view.dart';
 import 'package:dev_app_1/common/widgets/form_button.dart';
 import 'package:dev_app_1/common/widgets/form_text_field.dart';
-import 'package:dev_app_1/features/main_navigation/views/main_navigation_view.dart';
-import 'package:dev_app_1/features/onboarding/views/my_single_child_scroll_view.dart';
-import 'package:dev_app_1/features/widget_navigation/widget_navigation.dart';
+import 'package:dev_app_1/features/onboarding/views/tech_single_child_scroll_view.dart';
+import 'package:dev_app_1/features/widget_navigation/tech_widget_list_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -77,7 +76,7 @@ class _SignInFormViewState extends State<SignInFormView> {
         //     'user': '123',
         //   },
         // );
-        context.pushNamed(MySingleChildScrollView.routeName,
+        context.pushNamed(TechSingleChildScrollView.routeName,
             queryParams: {'email': formData['email']});
       }
     }
@@ -90,7 +89,7 @@ class _SignInFormViewState extends State<SignInFormView> {
   void _onWidgetNavigationTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const WidgetNavigation(),
+        builder: (context) => const TechWidgetListNavigation(),
       ),
     );
   }

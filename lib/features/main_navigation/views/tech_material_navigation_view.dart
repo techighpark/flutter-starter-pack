@@ -6,16 +6,18 @@ import 'package:flutter/material.dart';
 /// [BottomNavigationBar] - Material Design 2
 /// [NavigationBar] - Material Design 3
 /// [NavigationDestination]
-class MainNavigationView extends StatefulWidget {
+class TechMaterialNavigationView extends StatefulWidget {
   static String routeName = 'mainNavigation';
   static String routeUrl = '/main';
-  const MainNavigationView({Key? key}) : super(key: key);
+  const TechMaterialNavigationView({Key? key}) : super(key: key);
 
   @override
-  State<MainNavigationView> createState() => _MainNavigationViewState();
+  State<TechMaterialNavigationView> createState() =>
+      _TechMaterialNavigationViewState();
 }
 
-class _MainNavigationViewState extends State<MainNavigationView> {
+class _TechMaterialNavigationViewState
+    extends State<TechMaterialNavigationView> {
   int _selectedIndex = 0;
 
   final screens = [

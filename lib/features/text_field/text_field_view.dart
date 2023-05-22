@@ -3,14 +3,36 @@ import 'package:dev_app_1/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TextFieldView extends StatelessWidget {
-  final ScrollController _scrollController = ScrollController();
-
+/// [CupertinoWidget]은 ThemeData가 적용이 안되는건가?
+class TextFieldView extends StatefulWidget {
   TextFieldView({Key? key}) : super(key: key);
+
+  @override
+  State<TextFieldView> createState() => _TextFieldViewState();
+}
+
+class _TextFieldViewState extends State<TextFieldView> {
+  final ScrollController _scrollController = ScrollController();
+  final TextEditingController _textEditingController =
+      TextEditingController(text: 'Initial');
+  void _onChanged(String value) {
+    print(value);
+  }
+
+  void _onSubmitted(String value) {
+    print(value);
+  }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('TextField Type'),
       ),
@@ -38,7 +60,13 @@ class TextFieldView extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             Gaps.v14,
-                            CupertinoSearchTextField(),
+
+                            /// [selectionColor] -> main-[ThemeData]->[textSelectionTheme]에서 변경해줘야함
+                            CupertinoSearchTextField(
+                              controller: _textEditingController,
+                              onChanged: _onChanged,
+                              onSubmitted: _onSubmitted,
+                            ),
                           ],
                         ),
                       ),
@@ -53,7 +81,15 @@ class TextFieldView extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             Gaps.v14,
-                            CupertinoTextField(),
+                            CupertinoTextField(
+                              controller: _textEditingController,
+                              onChanged: _onChanged,
+                              onSubmitted: _onSubmitted,
+                              cursorColor: Colors.red,
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -68,7 +104,11 @@ class TextFieldView extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             Gaps.v14,
-                            TextField(),
+                            TextField(
+                              controller: _textEditingController,
+                              onChanged: _onChanged,
+                              onSubmitted: _onSubmitted,
+                            ),
                           ],
                         ),
                       ),
@@ -101,7 +141,7 @@ class TextFieldView extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             Gaps.v14,
-                            TextField(
+                            const TextField(
                               keyboardType: TextInputType.number,
                             ),
                           ],
@@ -118,7 +158,7 @@ class TextFieldView extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                             Gaps.v14,
-                            TextField(
+                            const TextField(
                               textInputAction: TextInputAction.emergencyCall,
                             ),
                           ],

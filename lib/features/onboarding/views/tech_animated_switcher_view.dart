@@ -13,14 +13,15 @@ const switcherText = [
   'Fifth Switcher',
 ];
 
-class MyAnimatedSwitcherView extends StatefulWidget {
-  const MyAnimatedSwitcherView({Key? key}) : super(key: key);
+class TechAnimatedSwitcherView extends StatefulWidget {
+  const TechAnimatedSwitcherView({Key? key}) : super(key: key);
 
   @override
-  State<MyAnimatedSwitcherView> createState() => _MyAnimatedSwitcherViewState();
+  State<TechAnimatedSwitcherView> createState() =>
+      _TechAnimatedSwitcherViewState();
 }
 
-class _MyAnimatedSwitcherViewState extends State<MyAnimatedSwitcherView> {
+class _TechAnimatedSwitcherViewState extends State<TechAnimatedSwitcherView> {
   Direction _direction = Direction.right;
   int _index = 0;
 

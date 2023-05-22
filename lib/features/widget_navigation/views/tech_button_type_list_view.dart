@@ -4,14 +4,14 @@ import 'package:dev_app_1/features/widget_navigation/widgets/buttons/stack_butto
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ButtonTypeView extends StatefulWidget {
-  const ButtonTypeView({Key? key}) : super(key: key);
+class TechButtonTypeListView extends StatefulWidget {
+  const TechButtonTypeListView({Key? key}) : super(key: key);
 
   @override
-  State<ButtonTypeView> createState() => _ButtonTypeViewState();
+  State<TechButtonTypeListView> createState() => _TechButtonTypeListViewState();
 }
 
-class _ButtonTypeViewState extends State<ButtonTypeView> {
+class _TechButtonTypeListViewState extends State<TechButtonTypeListView> {
   final ScrollController _scrollController = ScrollController();
 
   void _onPressed() {}
