@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 /// [CupertinoWidget]은 ThemeData가 적용이 안되는건가?
 class TextFieldView extends StatefulWidget {
-  TextFieldView({Key? key}) : super(key: key);
+  const TextFieldView({Key? key}) : super(key: key);
 
   @override
   State<TextFieldView> createState() => _TextFieldViewState();

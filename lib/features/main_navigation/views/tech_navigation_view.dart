@@ -1,9 +1,10 @@
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
-import 'package:dev_app_1/features/grid_view/views/tech_custom_grid_view.dart';
+import 'package:dev_app_1/features/scroll_view/views/tech_custom_grid_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/stfScreen.dart';
 import 'package:dev_app_1/features/main_navigation/widgets/nav_tab.dart';
 import 'package:dev_app_1/features/scroll_view/views/tech_custom_scroll_view.dart';
+import 'package:dev_app_1/features/scroll_view/views/tech_nested_scroll_view.dart';
 import 'package:dev_app_1/features/widget_navigation/widgets/buttons/stack_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +92,7 @@ class _TechNavigationViewState extends State<TechNavigationView> {
           ),
           Offstage(
             offstage: _selectedIndex != 3,
-            child: StfScreen(),
+            child: const TechNestedScrollView(),
           ),
           Offstage(
             offstage: _selectedIndex != 4,
@@ -106,7 +107,7 @@ class _TechNavigationViewState extends State<TechNavigationView> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             NavTab(
-              text: 'Home',
+              text: 'List',
               isSelected: _selectedIndex == 0,
               icon: CupertinoIcons.camera_on_rectangle,
               onTap: () => _onTap(0),

@@ -136,6 +136,69 @@ class _TechButtonTypeListViewState extends State<TechButtonTypeListView> {
                         onPressed: _onPressed,
                         child: const Text('Disabled'),
                       ),
+                      Gaps.v40,
+                      const Text(
+                        'Outlined Button',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Gaps.v4,
+                      OutlinedButton(
+                        style: ElevatedButton.styleFrom(
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        onPressed: _onPressed,
+                        child: const Text('Disabled'),
+                      ),
+                      OutlinedButton(
+                        style: ElevatedButton.styleFrom(
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        onPressed: null,
+                        child: const Text('Disabled'),
+                      ),
+                      Gaps.v40,
+                      const Text(
+                        'Floating Action Button',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Gaps.v4,
+                      Gaps.v40,
+                      const Text(
+                        'Raw Material Button',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Gaps.v4,
+                      Gaps.v40,
+                      const Text(
+                        'Outlined Button',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Gaps.v4,
+                      Gaps.v40,
+                      const Text(
+                        'Icon Button',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Gaps.v4,
                     ],
                   ),
                 ),

@@ -9,14 +9,14 @@ import 'package:flutter/material.dart';
 /// [ListView.separated]
 /// [automaticallyImplyLeading]
 ///
-class ModalBottomSheet extends StatefulWidget {
-  const ModalBottomSheet({Key? key}) : super(key: key);
+class TechModalBottomSheet extends StatefulWidget {
+  const TechModalBottomSheet({Key? key}) : super(key: key);
 
   @override
-  State<ModalBottomSheet> createState() => _ModalBottomSheetState();
+  State<TechModalBottomSheet> createState() => _TechModalBottomSheetState();
 }
 
-class _ModalBottomSheetState extends State<ModalBottomSheet> {
+class _TechModalBottomSheetState extends State<TechModalBottomSheet> {
   bool _isWriting = false;
   int textLines = 1;
   final double _initialHeight = 40;

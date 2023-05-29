@@ -1,8 +1,11 @@
 import 'package:dev_app_1/constants/sizes.dart';
+import 'package:dev_app_1/features/buttons/widgets/tech_cupertino_button.dart';
 import 'package:dev_app_1/features/main_navigation/views/tech_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/tech_material_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/tech_cupertino_tab_bar_view.dart';
 import 'package:dev_app_1/features/text_field/text_field_view.dart';
+import 'package:dev_app_1/features/widget_navigation/views/tech_indicator_type_view.dart';
+import 'package:dev_app_1/features/widget_navigation/views/tech_list_type_view.dart';
 import 'package:dev_app_1/features/widget_navigation/views/tech_swipe_type_list_view.dart';
 import 'package:dev_app_1/features/widget_navigation/views/tech_button_type_list_view.dart';
 import 'package:dev_app_1/features/widget_navigation/widgets/bottom_sheets/modal_bottom_sheet.dart';
@@ -67,7 +70,15 @@ class _TechWidgetListNavigationState extends State<TechWidgetListNavigation> {
   void _onTextFieldTap() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => TextFieldView(),
+        builder: (context) => const TextFieldView(),
+      ),
+    );
+  }
+
+  void _onListTypeTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const TechListTypeView(),
       ),
     );
   }
@@ -88,7 +99,7 @@ class _TechWidgetListNavigationState extends State<TechWidgetListNavigation> {
       /// with [ModalBottomSheet]>[Container]>[borderRadius]
       backgroundColor: Colors.transparent,
       clipBehavior: Clip.hardEdge,
-      builder: (context) => const ModalBottomSheet(),
+      builder: (context) => const TechModalBottomSheet(),
     );
   }
 
@@ -254,6 +265,31 @@ class _TechWidgetListNavigationState extends State<TechWidgetListNavigation> {
                   ),
                 ),
               ),
+              Text(
+                'List & Scroll Type',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: CupertinoButton(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  onPressed: _onListTypeTap,
+                  child: Text(
+                    'List & Scroll View',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                'Indicator Type',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const TechCupertinoButton(
+                text: 'Indicator Type',
+                child: TechIndicatorTypeView(),
+              )
             ],
           ),
         ),
