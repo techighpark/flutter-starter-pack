@@ -3,6 +3,7 @@ import 'package:dev_app_1/features/buttons/widgets/tech_cupertino_button.dart';
 import 'package:dev_app_1/features/main_navigation/views/tech_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/tech_material_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/tech_cupertino_tab_bar_view.dart';
+import 'package:dev_app_1/features/others/other_page_view.dart';
 import 'package:dev_app_1/features/text_field/text_field_view.dart';
 import 'package:dev_app_1/features/widget_navigation/views/tech_indicator_type_view.dart';
 import 'package:dev_app_1/features/widget_navigation/views/tech_list_type_view.dart';
@@ -289,6 +290,14 @@ class _TechWidgetListNavigationState extends State<TechWidgetListNavigation> {
               const TechCupertinoButton(
                 text: 'Indicator Type',
                 child: TechIndicatorTypeView(),
+              ),
+              Text(
+                'Othters',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const TechCupertinoButton(
+                text: 'Others',
+                child: OtherPageView(),
               )
             ],
           ),

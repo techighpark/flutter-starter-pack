@@ -1,5 +1,4 @@
 import 'package:dev_app_1/common/widgets/avatar.dart';
-import 'package:dev_app_1/common/widgets/form_text_field.dart';
 import 'package:dev_app_1/constants/gaps.dart';
 import 'package:dev_app_1/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
@@ -129,7 +128,7 @@ class _TechModalBottomSheetState extends State<TechModalBottomSheet> {
                   itemBuilder: (context, index) => Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Avatar(),
+                      const Avatar(),
                       Gaps.h20,
                       Expanded(
                         child: Column(
@@ -205,7 +204,7 @@ class _TechModalBottomSheetState extends State<TechModalBottomSheet> {
                     ),
                     child: Row(
                       children: [
-                        Avatar(),
+                        const Avatar(),
                         Gaps.h20,
                         Expanded(
                           /// [contentPadding] 작은 값은 적용이 안되므로 TextField를 SizedBox로 감싸서 높이 지정해야한다.

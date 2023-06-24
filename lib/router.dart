@@ -4,14 +4,28 @@ import 'package:dev_app_1/features/main_navigation/views/tech_navigation_view.da
 import 'package:dev_app_1/features/main_navigation/views/tech_material_navigation_view.dart';
 import 'package:dev_app_1/features/main_navigation/views/tech_cupertino_tab_bar_view.dart';
 import 'package:dev_app_1/features/onboarding/views/tech_single_child_scroll_view.dart';
+import 'package:dev_app_1/features/others/navigation_rail_view.dart';
+import 'package:dev_app_1/features/others/other_page_view.dart';
+import 'package:dev_app_1/features/others/other_page_view.dart';
+import 'package:dev_app_1/features/others/other_page_view.dart';
 import 'package:dev_app_1/features/widget_navigation/tech_widget_list_navigation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 final routerProvider = Provider(
   (ref) => GoRouter(
-    initialLocation: '/widgetnav',
+    initialLocation: '/nav-rail',
     routes: [
+      GoRoute(
+        path: NavigationRailView.routeUrl,
+        name: NavigationRailView.routeName,
+        builder: (context, state) => const NavigationRailView(),
+      ),
+      GoRoute(
+        path: OtherPageView.routeUrl,
+        name: OtherPageView.routeName,
+        builder: (context, state) => const OtherPageView(),
+      ),
       GoRoute(
         path: SignInFormView.routeUrl,
         name: SignInFormView.routeName,
